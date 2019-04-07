@@ -1,0 +1,13 @@
+#PBS -N Bio_concat
+#PBS -V
+#PBS -A tyjames_flux
+#PBS -l qos=flux
+#PBS -q flux
+#PBS -l nodes=4:ppn=2,pmem=4gb,walltime=100:00:00
+#PBS -M daviswj@umich.edu
+#PBS -m abe
+#PBS -j oe
+
+#Your Code Goes Below:
+cd /home/daviswj/Sequences/BioBlitz/Dogma_paper/trees
+mpirun -np 8 raxmlHPC-MPI -s Chytridiomycota_18s_28s_gb_mafft_algn_seaview_concat_181125.fasta -n bioblitz_draft_tree_concat181125.nex -f a -m GTRGAMMA -x 1234 -p 1234 -# 1000
